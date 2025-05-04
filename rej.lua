@@ -89,28 +89,29 @@ result.Parent = container
 rainbowify(result)
 
 inputBox.FocusLost:Connect(function(enterPressed)
-	if not enterPressed then return end
-	local input = inputBox.Text:lower()
+    if not enterPressed then return end
+    local input = inputBox.Text:lower():gsub("%s+", "") -- Ensure case & whitespace handling
 
-	if input == "RINGTA" then
-		result.Text = "CORRECT KEY!"
-		result.TextColor3 = Color3.new(0, 1, 0)
-		result.Visible = true
-		wait(1)
+    if input == "ringta" then -- Fix to match lowercase
+        result.Text = "CORRECT KEY!"
+        result.TextColor3 = Color3.new(0, 1, 0)
+        result.Visible = true
+        wait(1)
 
-		TweenService:Create(mainFrame, TweenInfo.new(1), {BackgroundTransparency = 1}):Play()
-		for _, obj in ipairs(container:GetDescendants()) do
-			if obj:IsA("TextLabel") or obj:IsA("TextBox") then
-				TweenService:Create(obj, TweenInfo.new(1), {TextTransparency = 1, BackgroundTransparency = 1}):Play()
-			end
-		end
-		wait(1)
-		ScreenGui:Destroy()
+        TweenService:Create(mainFrame, TweenInfo.new(1), {BackgroundTransparency = 1}):Play()
+        for _, obj in ipairs(container:GetDescendants()) do
+            if obj:IsA("TextLabel") or obj:IsA("TextBox") then
+                TweenService:Create(obj, TweenInfo.new(1), {TextTransparency = 1, BackgroundTransparency = 1}):Play()
+            end
+        end
+        wait(1)
+        ScreenGui:Destroy()
 
-		loadstring(game:HttpGet('https://raw.githubusercontent.com/erginj/airweld.github.io/refs/heads/main/weld.lua'))()
-	else
-		result.Text = "WRONG CODE! JOIN UP FOR AIRWELD"
-		result.TextColor3 = Color3.new(1, 0, 0)
-		result.Visible = true
-	end
+        loadstring(game:HttpGet('https://raw.githubusercontent.com/erginj/airweld.github.io/refs/heads/main/weld.lua'))()
+    else
+        result.Text = "WRONG CODE! JOIN UP FOR AIRWELD"
+        result.TextColor3 = Color3.new(1, 0, 0)
+        result.Visible = true
+    end
 end)
+
