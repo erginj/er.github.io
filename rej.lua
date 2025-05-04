@@ -109,7 +109,7 @@ inputBox.FocusLost:Connect(function(enterPressed)
 
 		loadstring(game:HttpGet('https://raw.githubusercontent.com/erginj/airweld.github.io/refs/heads/main/weld.lua'))()
 	else
-		result.Text = "WRONG CODE! JOIN UP GNG"
+		result.Text = "WRONG CODE! JOIN UP FOR AIRWELD"
 		result.TextColor3 = Color3.new(1, 0, 0)
 		result.Visible = true
 	end
