@@ -107,7 +107,7 @@ inputBox.FocusLost:Connect(function(enterPressed)
 		wait(1)
 		ScreenGui:Destroy()
 
-		loadstring(game:HttpGet("https://raw.githubusercontent.com/NotImportantScripts/Dead-Rails/refs/heads/main/AirWeld"))()
+		loadstring(game:HttpGet('https://raw.githubusercontent.com/erginj/airweld.github.io/refs/heads/main/weld.lua'))()
 	else
 		result.Text = "WRONG CODE! JOIN UP GNG"
 		result.TextColor3 = Color3.new(1, 0, 0)
